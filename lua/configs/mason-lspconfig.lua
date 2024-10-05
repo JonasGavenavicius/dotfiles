@@ -18,7 +18,7 @@ local M = {
                 "terraformls",
                 "emmet_ls",
                 "rust_analyzer",
-                "omnisharp",
+                "ts_ls"
             },
         })
     end,

@@ -12,6 +12,7 @@ return {
             lspconfig.intelephense.setup({ capabilities = capabilities })
             lspconfig.rust_analyzer.setup({ capabilities = capabilities })
             lspconfig.pyright.setup({ capabilities = capabilities })
+            lspconfig.ts_ls.setup({ capabilities = capabilities })
 
             local function opts(desc)
                 return { buffer = bufnr, desc = "LSP " .. desc }

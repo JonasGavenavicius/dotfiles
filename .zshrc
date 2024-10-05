@@ -21,5 +21,5 @@ fi
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
 
-eval "$(fzf --bash)"
-
+# Set up fzf key bindings and fuzzy completion
+source <(fzf --zsh)

@@ -33,6 +33,7 @@ require("lazy").setup({
     { require "configs.dap_ui" },
     { require "configs.go-nvim" },
     { require "configs.trouble" },
+    { require "configs.notify" },
     { require "configs.noice" },
     { require "configs.lualine" },
     { require "configs.alpha-nvim" },
