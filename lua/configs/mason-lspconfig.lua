@@ -18,7 +18,9 @@ local M = {
                 "terraformls",
                 "emmet_ls",
                 "rust_analyzer",
-                "ts_ls"
+                "ts_ls",
+                "goimports",
+                "gofumpt"
             },
         })
     end,

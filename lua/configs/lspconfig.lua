@@ -10,9 +10,11 @@ return {
             lspconfig.csharp_ls.setup({ capabilities = capabilities })
             lspconfig.clangd.setup({ capabilities = capabilities })
             lspconfig.intelephense.setup({ capabilities = capabilities })
-            lspconfig.rust_analyzer.setup({ capabilities = capabilities })
+            -- lspconfig.rust_analyzer.setup({ capabilities = capabilities })
             lspconfig.pyright.setup({ capabilities = capabilities })
             lspconfig.ts_ls.setup({ capabilities = capabilities })
+            lspconfig.gopls.setup({ capabilities = capabilities })
+            lspconfig.json.setup({ capabilities = capabilities })
 
             local function opts(desc)
                 return { buffer = bufnr, desc = "LSP " .. desc }
@@ -22,6 +24,7 @@ return {
             vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts "Go to implementation")
             vim.keymap.set("n", "K", vim.lsp.buf.hover, opts "Hover")
             vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts "Implementations")
+            vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts "Code action")
             vim.keymap.set("n", "gr", function()
                 require("telescope.builtin").lsp_references()
             end, {})

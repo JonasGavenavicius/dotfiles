@@ -49,22 +49,50 @@ return {
                     completion = cmp.config.window.bordered(),
                     documentation = cmp.config.window.bordered(),
                 },
-                mapping = cmp.mapping.preset.insert({
-                    ["<Tab>"] = cmp.mapping(cmp.mapping.select_next_item(), { "i", "s" }),
-                    ["<S-Tab>"] = cmp.mapping(cmp.mapping.select_prev_item(), { "i", "s" }),
-                    ["<C-b>"] = cmp.mapping.scroll_docs(-4),
+                mapping = {
+                    ["<C-p>"] = cmp.mapping.select_prev_item(),
+                    ["<C-n>"] = cmp.mapping.select_next_item(),
+                    ["<C-d>"] = cmp.mapping.scroll_docs(-4),
                     ["<C-f>"] = cmp.mapping.scroll_docs(4),
                     ["<C-Space>"] = cmp.mapping.complete(),
-                    ["<C-e>"] = cmp.mapping.abort(),
-                    ["<CR>"] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
-                }),
+                    ["<C-e>"] = cmp.mapping.close(),
+
+                    ["<CR>"] = cmp.mapping.confirm {
+                        behavior = cmp.ConfirmBehavior.Insert,
+                        select = true,
+                    },
+
+                    ["<Tab>"] = cmp.mapping(function(fallback)
+                        if cmp.visible() then
+                            cmp.select_next_item()
+                        elseif require("luasnip").expand_or_jumpable() then
+                            require("luasnip").expand_or_jump()
+                        else
+                            fallback()
+                        end
+                    end, { "i", "s" }),
+
+                    ["<S-Tab>"] = cmp.mapping(function(fallback)
+                        if cmp.visible() then
+                            cmp.select_prev_item()
+                        elseif require("luasnip").jumpable(-1) then
+                            require("luasnip").jump(-1)
+                        else
+                            fallback()
+                        end
+                    end, { "i", "s" }),
+                },
                 sources = cmp.config.sources({
                     { name = "nvim_lsp" },
                     { name = "luasnip" }, -- For luasnip users.
                     { name = "crate" },
-                }, {
+                    { name = "nvim_lsp_signature_help" },
                     { name = "buffer" },
-                }),
+                    { name = "path" },
+                    { name = "dotenv" },
+                    { name = "treesitter" },
+                }
+                ),
             })
         end,
     },

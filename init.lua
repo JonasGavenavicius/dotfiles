@@ -26,8 +26,8 @@ require("lazy").setup({
     { require "configs.treesitter" },
     { require "configs.conform" },
     -- { require "configs.flash" },
-    -- { require "configs.rustaceanvim" },
-    -- { require "configs.rust" },
+    { require "configs.rustaceanvim" },
+    { require "configs.rust" },
     { require "configs.crates" },
     { require "configs.dap" },
     { require "configs.dap_ui" },
@@ -37,6 +37,7 @@ require("lazy").setup({
     { require "configs.noice" },
     { require "configs.lualine" },
     { require "configs.alpha-nvim" },
+    { require "configs.autoclose" },
 })
 
 -- load theme

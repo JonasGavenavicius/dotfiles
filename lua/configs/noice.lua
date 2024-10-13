@@ -4,7 +4,20 @@ return {
     opts = {},
     dependencies = {
         "MunifTanjim/nui.nvim",
+        {
+            "rcarriga/nvim-notify",
+            opts = {
+                top_down = true,
+            },
+        },
         "rcarriga/nvim-notify",
+    },
+    keys = {
+        { "<leader>n",  "",                         desc = "Noice" },
+        { "<leader>nd", "<cmd>Noice dismiss<cr>",   desc = "Dismiss all visible messages" },
+        { "<leader>nn", "<cmd>Noice<cr>",           desc = "Open Noice" },
+        { "<leader>ne", "<cmd>Noice errors<cr>",    desc = "Open Noice Errors" },
+        { "<leader>nt", "<cmd>Noice telescope<cr>", desc = "Open Noice with telescope" },
     },
     config = function()
         require("noice").setup({
@@ -16,11 +29,11 @@ return {
                 },
             },
             presets = {
-                bottom_search = true,
-                command_palette = true,
-                long_message_to_split = true,
-                inc_rename = false,
-                lsp_doc_border = false,
+                bottom_search = false,        -- use a classic bottom cmdline for search
+                command_palette = true,       -- position the cmdline and popupmenu together
+                long_message_to_split = true, -- long messages will be sent to a split
+                inc_rename = true,            -- enables an input dialog for inc-rename.nvim
+                lsp_doc_border = false,       -- add a border to hover docs and signature help
             },
         })
     end,
