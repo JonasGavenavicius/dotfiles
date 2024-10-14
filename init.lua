@@ -1,4 +1,5 @@
 vim.g.mapleader = " "
+vim.opt.termguicolors = true
 
 -- bootstrap lazy and all plugins
 local lazypath = vim.fn.stdpath "data" .. "/lazy/lazy.nvim"
@@ -18,7 +19,7 @@ require("lazy").setup({
     { require "configs.nvimtree" },
     { require "configs.which-key" },
     { require "configs.gitsigns" },
-    { require "configs.mason-lspconfig" },
+    -- { require "configs.lsp-zero" },
     { require "configs.mason" },
     { require("configs.lspconfig") },
     { require "configs.cmp" },
@@ -26,18 +27,17 @@ require("lazy").setup({
     { require "configs.treesitter" },
     { require "configs.conform" },
     -- { require "configs.flash" },
-    { require "configs.rustaceanvim" },
+    -- { require "configs.rustaceanvim" },
     { require "configs.rust" },
     { require "configs.crates" },
     { require "configs.dap" },
     { require "configs.dap_ui" },
     { require "configs.go-nvim" },
     { require "configs.trouble" },
-    { require "configs.notify" },
     { require "configs.noice" },
     { require "configs.lualine" },
     { require "configs.alpha-nvim" },
-    { require "configs.autoclose" },
+    { require "configs.autopairs" },
 })
 
 -- load theme

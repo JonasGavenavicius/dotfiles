@@ -1,6 +1,6 @@
 local M = {
     "nvim-telescope/telescope.nvim",
-    dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-lua/plenary.nvim", "BurntSushi/ripgrep" },
+    dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-lua/plenary.nvim", "BurntSushi/ripgrep", "nvim-telescope/telescope-ui-select.nvim" },
     cmd = "Telescope",
     opts = {
         defaults = {
@@ -29,11 +29,31 @@ local M = {
         extensions = {},
     },
 }
+M.extensions = {
+    ["ui-select"] = {
+        {
+
+            -- pseudo code / specification for writing custom displays, like the one
+            -- for "codeactions"
+            -- specific_opts = {
+            --   [kind] = {
+            --     make_indexed = function(items) -> indexed_items, width,
+            --     make_displayer = function(widths) -> displayer
+            --     make_display = function(displayer) -> function(e)
+            --     make_ordinal = function(e) -> string
+            --   },
+            --   -- for example to disable the custom builtin "codeactions" display
+            --      do the following
+            --   codeactions = false,
+            -- }
+        }
+    }
+}
 
 M.config = function(_, opts)
     local telescope = require "telescope"
     telescope.setup(opts)
-
+    telescope.load_extension("ui-select")
     local map = vim.keymap.set
     local builtin = require('telescope.builtin')
     map('n', '<leader>ff', builtin.find_files, { desc = 'Telescope find files' })
