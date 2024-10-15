@@ -27,7 +27,7 @@ require("lazy").setup({
     { require "configs.treesitter" },
     { require "configs.conform" },
     -- { require "configs.flash" },
-    -- { require "configs.rustaceanvim" },
+    { require "configs.rustaceanvim" },
     { require "configs.rust" },
     { require "configs.crates" },
     { require "configs.dap" },

@@ -17,7 +17,8 @@ M.servers = {
     "jsonls",
     "terraformls",
     "emmet_ls",
-    "rust_analyzer",
+    "codelldb",
+    -- "rust_analyzer",
     "ts_ls",
     "goimports",
     "gofumpt"
