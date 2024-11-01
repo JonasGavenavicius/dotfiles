@@ -29,7 +29,7 @@ map("n", "<leader>ds", vim.diagnostic.setloclist, { desc = "LSP Diagnostic locli
 
 -- tabufline
 map("n", "<leader>b", "<cmd>enew<CR>", { desc = "buffer new" })
-map('n', '<leader>x', ':confirm bd<CR>', { noremap = true, silent = true, desc = "buffer close" })
+map('n', '<leader>bc', ':confirm bd<CR>', { noremap = true, silent = true, desc = "buffer close" })
 
 -- Comment
 map("n", "<leader>/", "gcc", { desc = "Toggle Comment", remap = true })

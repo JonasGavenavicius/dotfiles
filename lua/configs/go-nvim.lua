@@ -8,7 +8,7 @@ local M = {
     },
     config = function()
         require("go").setup()
-        require("go.format").gofmt()     -- gofmt only
+        -- require("go.format").gofmt()     -- gofmt only
         require("go.format").goimports() -- goimports + gofmt
         -- Run gofmt + goimports on save
 

@@ -22,6 +22,7 @@ return {
                 lualine_y = { "progress" },
                 lualine_z = { "location" },
             },
+            extensions = { "fzf", "lazy", "mason", "nvim-dap-ui", "trouble" },
         })
     end,
 }

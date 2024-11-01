@@ -19,6 +19,8 @@ M.config = function()
                 markdown = { "prettier" },
                 graphql = { "prettier" },
                 lua = { "stylua" },
+                -- Conform will run multiple formatters sequentially
+                go = { "gofumpt", "goimports", "goimports-reviser" },
                 terraform = { "terraform_fmt" },
                 python = { "isort", "black" },
             },

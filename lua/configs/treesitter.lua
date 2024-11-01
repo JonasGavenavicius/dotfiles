@@ -8,6 +8,7 @@ local M = {
     build = ":TSUpdate",
     opts = {
         ensure_installed = {
+            "bash",
             "csv",
             "dockerfile",
             "gitignore",

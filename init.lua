@@ -33,12 +33,29 @@ require("lazy").setup({
     { require "configs.dap" },
     { require "configs.dap_ui" },
     { require "configs.go-nvim" },
+    -- { require "configs.gopher" },
     { require "configs.trouble" },
     { require "configs.noice" },
     { require "configs.lualine" },
     { require "configs.alpha-nvim" },
     { require "configs.autopairs" },
+    -- { require "configs.codeium" },
+    { require "configs.fzf" },
+    -- { require "configs.indent-blankline" },
+    { require "configs.markdown-preview" },
+    { require "configs.nvim-lint" },
+    { require "configs.vim-rails" },
+    { require "configs.nvim-ufo" },
+    -- { require "configs.toggleterm" },
 })
+
+-- local utils = require("configs.run-code")
+
+-- Example key mappings for calling functions from the utils module
+-- vim.api.nvim_set_keymap("n", "<leader>gg", ":lua require('configs.run-code').git()<CR>",
+--     { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap("n", "<leader>cr", ":lua require('configs.run-code').run_code()<CR>",
+--     { noremap = true, silent = true })
 
 -- load theme
 

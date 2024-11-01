@@ -14,7 +14,8 @@ return {
             lspconfig.pyright.setup({ capabilities = capabilities })
             lspconfig.ts_ls.setup({ capabilities = capabilities })
             lspconfig.gopls.setup({ capabilities = capabilities })
-            lspconfig.json.setup({ capabilities = capabilities })
+            -- lspconfig.json.setup({ capabilities = capabilities })
+            -- lspconfig.go.setup({ capabilities = capabilities })
 
             local function opts(desc)
                 return { buffer = bufnr, desc = "LSP" .. desc }

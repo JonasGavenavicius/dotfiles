@@ -16,6 +16,7 @@ return {
     config = function()
         require("notify").setup({
             background_colour = "#000000",
+            render = "compact",
         })
         require("noice").setup {
             lsp = {
@@ -47,5 +48,8 @@ return {
                 lsp_doc_border = false,       -- add a border to hover docs and signature help
             },
         }
+        vim.cmd([[
+            hi NotifyBackground guibg=#000000 guifg=#ffffff blend=20
+        ]])
     end,
 }

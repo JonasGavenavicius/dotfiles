@@ -15,6 +15,22 @@ local M = {
             dapui.close()
         end
 
+        dap.adapters.go = {
+            type = "executable",
+            command = "node",
+            args = { "go-debug-adapter" },
+        }
+        dap.configurations.go = {
+            {
+                type = "go",
+                name = "Debug",
+                request = "launch",
+                showLog = false,
+                program = "${file}",
+                dlvToolPath = vim.fn.exepath "dlv",
+            },
+        }
+
         local map = vim.keymap.set
 
         map("n", "<Leader>dl", "<cmd>lua require'dap'.step_into()<CR>", { desc = "Debugger step into" })
