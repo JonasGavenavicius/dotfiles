@@ -17,19 +17,10 @@ M.servers = {
     "jsonls",
     "terraformls",
     "emmet_ls",
-    "codelldb",
     -- "rust_analyzer",
     "ts_ls",
-    "json",
-    "htmlbeautifier",
     -- "rustfmt",
-    "gofumpt",
     "gopls",
-    "gofmt",
-    "goimports",
-    "prettier",
-    "prettierd",
-    "stylua",
 }
 
 function M.config()

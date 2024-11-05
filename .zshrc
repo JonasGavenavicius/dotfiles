@@ -1,25 +1,35 @@
+# Load powerlevel10k instant prompt if available
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-# If you come from bash you might have to change your $PATH.
+# If you come from bash, you might have to update your $PATH.
+# Uncomment and modify if necessary
 # export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 
-# Path to your oh-my-zsh installation.
+# Set path to Oh My Zsh installation
 export ZSH="$HOME/.oh-my-zsh"
 
-ZSH_THEME="robbyrussell"
+# Use powerlevel10k as the Zsh theme
+ZSH_THEME="powerlevel10k/powerlevel10k"
 
-plugins=(git zsh-autosuggestions)
+# Load plugins
+plugins=(git zsh-autosuggestions zsh-autocomplete zsh-syntax-highlighting)
 
+# Initialize Oh My Zsh
 source $ZSH/oh-my-zsh.sh
 
+# Initialize zoxide if available
 if command -v zoxide > /dev/null; then
   eval "$(zoxide init zsh)"
 fi
 
-source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
+# Load syntax highlighting from manual install path
+if [[ -f "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ]]; then
+  source "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+fi
 
 # Set up fzf key bindings and fuzzy completion
-source <(fzf --zsh)
+if command -v fzf > /dev/null; then
+  source <(fzf --zsh)
+fi
