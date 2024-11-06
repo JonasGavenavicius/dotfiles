@@ -33,3 +33,16 @@ fi
 if command -v fzf > /dev/null; then
   source <(fzf --zsh)
 fi
+
+# ----- Bat (better cat) -----
+
+export BAT_THEME=tokyonight_night
+
+# ---- TheFuck -----
+
+# thefuck alias
+eval $(thefuck --alias)
+eval $(thefuck --alias fk)
+
+# Set up fzf key bindings and fuzzy completion
+eval "$(fzf --zsh)"

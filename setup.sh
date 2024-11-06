@@ -30,7 +30,7 @@ else
 fi
 
 # Declare packages to install
-FORMULAE=(neovim bat docker docker-compose rbenv fd fzf tmux gh unzip dotnet-sdk rustup go)
+FORMULAE=(neovim bat docker docker-compose rbenv fd fzf tmux gh unzip dotnet-sdk rustup go eza thefuck)
 CASKS=(1password-cli font-maple font-monaspace font-hack-nerd-font)
 
 # Install packages
