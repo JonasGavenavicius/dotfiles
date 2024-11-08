@@ -4,7 +4,6 @@ return {
     opts = {},
     dependencies = {
         "MunifTanjim/nui.nvim",
-        "rcarriga/nvim-notify",
     },
     keys = {
         { "<leader>n",  "",                         desc = "Noice" },
@@ -14,10 +13,6 @@ return {
         { "<leader>nt", "<cmd>Noice telescope<cr>", desc = "Open Noice with telescope" },
     },
     config = function()
-        require("notify").setup({
-            background_colour = "#000000",
-            render = "compact",
-        })
         require("noice").setup {
             lsp = {
                 hover = {
