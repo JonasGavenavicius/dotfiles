@@ -30,7 +30,7 @@ else
 fi
 
 # Declare packages to install
-FORMULAE=(neovim bat docker docker-compose rbenv fd fzf tmux gh unzip dotnet-sdk rustup go eza thefuck ripgrep)
+FORMULAE=(neovim bat docker docker-compose rbenv fd fzf tmux gh unzip dotnet-sdk rustup go eza thefuck ripgrep ruby)
 CASKS=(1password-cli font-maple font-monaspace font-hack-nerd-font)
 
 # Install packages
@@ -78,6 +78,9 @@ if [[ ! -d "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/powerlevel10k" ]]; th
     echo "Installing powerlevel10k..."
     git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k"
 fi
+
+echo "Installing ruby tools..."
+gem install rails
 
 echo "Installing rust tools..."
 rustup default stable

@@ -34,6 +34,9 @@ if command -v fzf > /dev/null; then
   source <(fzf --zsh)
 fi
 
+# ----- Ruby -------
+export PATH="$HOME/.local/share/gem/ruby/3.3.0/bin:$PATH"
+
 # ----- Bat (better cat) -----
 
 export BAT_THEME=tokyonight_night
