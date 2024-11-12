@@ -49,3 +49,6 @@ eval $(thefuck --alias fk)
 
 # Set up fzf key bindings and fuzzy completion
 eval "$(fzf --zsh)"
+
+# Set zoxide
+eval "$(zoxide init zsh)"

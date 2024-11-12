@@ -30,7 +30,7 @@ else
 fi
 
 # Declare packages to install
-FORMULAE=(neovim bat docker docker-compose rbenv fd fzf tmux gh unzip dotnet-sdk rustup go eza thefuck ripgrep ruby)
+FORMULAE=(neovim bat docker docker-compose rbenv fd fzf tmux gh unzip dotnet-sdk rustup go eza thefuck ripgrep ruby zoxide)
 CASKS=(1password-cli font-maple font-monaspace font-hack-nerd-font)
 
 # Install packages
@@ -84,6 +84,10 @@ gem install rails
 
 echo "Installing rust tools..."
 rustup default stable
+
+echo "Moving scripts..."
+mkdir ~/.local/bin
+cp scrips/* ~/.local/bin
 
 # Moving Neovim configuration files
 echo "Setting up Neovim configuration..."
