@@ -43,6 +43,8 @@ require("lazy").setup({
     { require "configs.nvim-ufo" },
     { require "configs.harpoon" },
     { require "configs.git-worktree" },
+    { require "configs.persistence" },
+    { require "configs.breadcrumbs" },
 })
 
 require "options"
