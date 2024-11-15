@@ -38,13 +38,22 @@ M.config = {
             default_integrations = true,
             integrations = {
                 cmp = true,
+                lsp_trouble = true,
+                dap = true,
+                mason = true,
                 gitsigns = true,
                 nvimtree = true,
                 treesitter = true,
                 notify = false,
+                which_key = true,
+                harpoon = true,
                 mini = {
                     enabled = false,
                     indentscope_color = "",
+                },
+                telescope = {
+                   enabled = true,
+                   style = "nvchad"
                 },
                 -- For more plugins integrations please scroll down (https://github.com/catppuccin/nvim#integrations)
             },
@@ -55,24 +64,4 @@ M.config = {
     end
 }
 
-local N = {
-    "sainnhe/gruvbox-material",
-    enabled = true,
-    priority = 1000,
-    config = function()
-      vim.g.gruvbox_material_transparent_background = 0
-      vim.g.gruvbox_material_foreground = "mix"
-      vim.g.gruvbox_material_background = "hard"
-      vim.g.gruvbox_material_ui_contrast = "high"
-      vim.g.gruvbox_material_float_style = "bright"
-      vim.g.gruvbox_material_statusline_style = "material"
-      vim.g.gruvbox_material_cursor = "auto"
-
-      -- vim.g.gruvbox_material_colors_override = { bg0 = '#16181A' } -- #0e1010
-      -- vim.g.gruvbox_material_better_performance = 1
-
-      -- vim.cmd.colorscheme("gruvbox-material")
-    end,
-}
-
-return { M, N }
+return M

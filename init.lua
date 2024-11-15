@@ -14,13 +14,11 @@ vim.opt.rtp:prepend(lazypath)
 -- load plugins
 require("lazy").setup({
     "nvim-lua/plenary.nvim",
-    { require "configs.theme" },
-    -- { require "configs.bufferline" },
     { require "configs.nvimtree" },
     { require "configs.which-key" },
     { require "configs.gitsigns" },
     { require "configs.mason" },
-    { require("configs.lspconfig") },
+    { require "configs.lspconfig" },
     { require "configs.cmp" },
     { require "configs.telescope" },
     { require "configs.treesitter" },
@@ -46,6 +44,7 @@ require("lazy").setup({
     { require "configs.persistence" },
     { require "configs.breadcrumbs" },
     { require "configs.telescope-file-browser" },
+    { require "configs.theme" },
 })
 
 require "options"
@@ -54,3 +53,4 @@ require "autocmds"
 vim.schedule(function()
     require "mappings"
 end)
+
