@@ -45,6 +45,7 @@ require("lazy").setup({
     { require "configs.git-worktree" },
     { require "configs.persistence" },
     { require "configs.breadcrumbs" },
+    { require "configs.telescope-file-browser" },
 })
 
 require "options"

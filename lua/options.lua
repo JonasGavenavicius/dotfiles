@@ -39,6 +39,7 @@ o.splitright = true
 o.timeoutlen = 400
 o.undofile = true
 o.relativenumber = true -- Enable relative line numbers
+opt.wrap = false
 
 -- interval for writing swap file to disk, also used by gitsigns
 o.updatetime = 250
