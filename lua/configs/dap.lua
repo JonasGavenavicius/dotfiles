@@ -1,7 +1,11 @@
 local M = {
     'mfussenegger/nvim-dap',
+    dependencies = {
+      "suketa/nvim-dap-ruby"
+    },
     config = function()
         local dap, dapui = require("dap"), require("dapui")
+        require("dap-ruby").setup()
         dap.listeners.before.attach.dapui_config = function()
             dapui.open()
         end

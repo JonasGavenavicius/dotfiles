@@ -13,7 +13,7 @@ vim.opt.rtp:prepend(lazypath)
 
 -- load plugins
 require("lazy").setup({
-    "nvim-lua/plenary.nvim",
+    { require "configs.planary" },
     { require "configs.nvimtree" },
     { require "configs.which-key" },
     { require "configs.gitsigns" },
@@ -45,6 +45,7 @@ require("lazy").setup({
     { require "configs.breadcrumbs" },
     { require "configs.telescope-file-browser" },
     { require "configs.theme" },
+    { require "configs.ruby"}
 })
 
 require "options"
