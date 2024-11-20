@@ -1,11 +1,11 @@
 local M = {
     "LunarVim/breadcrumbs.nvim",
     dependencies = {
-        {"SmiteshP/nvim-navic"},
+        { "SmiteshP/nvim-navic" },
     },
 }
 
-function M.config()
+M.config = function()
     require("breadcrumbs").setup()
 end
 

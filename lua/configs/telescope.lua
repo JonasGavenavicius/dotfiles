@@ -23,6 +23,7 @@ local M = {
             },
         },
     },
+    extensions_list = { "themes" },
 }
 
 M.config = function(_, opts)
@@ -41,4 +42,3 @@ M.config = function(_, opts)
 end
 
 return M
-

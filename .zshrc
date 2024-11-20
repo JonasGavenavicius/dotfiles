@@ -39,7 +39,7 @@ export PATH="$HOME/.local/share/gem/ruby/3.3.0/bin:$PATH"
 
 # ----- Bat (better cat) -----
 
-export BAT_THEME=tokyonight_night
+# export BAT_THEME=tokyonight_night
 
 # ---- TheFuck -----
 

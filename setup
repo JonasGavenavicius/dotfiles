@@ -103,6 +103,7 @@ fi
 
 # Copy Tmux configuration file
 echo "Setting up Tmux configuration..."
+cp .scrips/tmux-sessionizer ~/.local/bin/
 cp .tmux.conf ~/
 
 # Trigger Tmux to source the configuration and install plugins

@@ -15,6 +15,8 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
     { require "configs.planary" },
     { require "configs.nvimtree" },
+    { require "configs.lspkind" },
+    { require "configs.web-icons" },
     { require "configs.which-key" },
     { require "configs.gitsigns" },
     { require "configs.mason" },
@@ -45,7 +47,7 @@ require("lazy").setup({
     { require "configs.breadcrumbs" },
     { require "configs.telescope-file-browser" },
     { require "configs.theme" },
-    { require "configs.ruby"}
+    { require "configs.ruby" },
 })
 
 require "options"
@@ -54,4 +56,3 @@ require "autocmds"
 vim.schedule(function()
     require "mappings"
 end)
-
