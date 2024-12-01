@@ -46,7 +46,8 @@ require("lazy").setup({
     { require "configs.persistence" },
     { require "configs.breadcrumbs" },
     { require "configs.telescope-file-browser" },
-    { require "configs.theme" },
+    { require "configs.catppuccin" },
+    -- { require "configs.rose-pine"},
     { require "configs.ruby" },
 })
 
