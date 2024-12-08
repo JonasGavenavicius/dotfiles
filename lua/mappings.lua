@@ -18,7 +18,7 @@ map("n", "<Leader>-s", "<cmd>w<CR>", { desc = "General Save file" })
 map("n", "<C-c>", "<cmd>%y+<CR>", { desc = "General Copy whole file" })
 
 -- map("n", "<leader>n", "<cmd>set nu!<CR>", { desc = "Toggle line number" })
-map("n", "<leader>rn", "<cmd>set rnu!<CR>", { desc = "Toggle relative number" })
+map("n", "<leader>ln", "<cmd>set rnu!<CR>", { desc = "Toggle relative number" })
 
 map("n", "<leader>fm", function()
     require("conform").format { lsp_fallback = true }
