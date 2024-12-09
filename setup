@@ -30,7 +30,7 @@ else
 fi
 
 # Declare packages to install
-FORMULAE=(neovim bat docker docker-compose rbenv fd fzf tmux gh unzip dotnet-sdk rustup go eza thefuck ripgrep ruby zoxide gh stylua)
+FORMULAE=(wget yarn neovim bat docker docker-compose rbenv fd fzf tmux gh unzip dotnet-sdk rustup go z eza thefuck ripgrep ruby zoxide gh stylua)
 CASKS=(1password-cli font-maple font-monaspace font-hack-nerd-font)
 
 # Install packages
@@ -54,6 +54,11 @@ elif [[ "$PACKAGE_MANAGER" == "nix" ]]; then
         nix-env -iA nixpkgs."$formula"
     done
 fi
+
+echo "Installing ohmyzsh"
+wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
+sh install.sh
+rm install.sh
 
 # Install powerlevel10k manually
 if [[ ! -d "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k" ]]; then
