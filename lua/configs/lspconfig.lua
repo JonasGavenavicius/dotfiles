@@ -10,12 +10,15 @@ return {
             lspconfig.csharp_ls.setup({ capabilities = capabilities })
             lspconfig.clangd.setup({ capabilities = capabilities })
             lspconfig.intelephense.setup({ capabilities = capabilities })
-            -- lspconfig.rust_analyzer.setup({ capabilities = capabilities })
             lspconfig.pyright.setup({ capabilities = capabilities })
             lspconfig.ts_ls.setup({ capabilities = capabilities })
             lspconfig.gopls.setup({ capabilities = capabilities })
-            -- lspconfig.json.setup({ capabilities = capabilities })
-            -- lspconfig.go.setup({ capabilities = capabilities })
+            lspconfig.ruby_lsp.setup({
+                init_options = {
+                  formatter = 'standard',
+                  linters = { 'standard' },
+                },
+              })
 
             local function opts(desc)
                 return { buffer = bufnr, desc = "LSP" .. desc }

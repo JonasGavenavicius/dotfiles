@@ -17,17 +17,12 @@ M.servers = {
     "jsonls",
     "terraformls",
     "emmet_ls",
-    -- "rust_analyzer",
+    "ruby_lsp",
     "ts_ls",
-    -- "rustfmt",
     "gopls",
 }
 
 function M.config()
-    -- local lsp = require("lsp-zero")
-    -- lsp.preset("recommended")
-
-    -- require("lsp-zero").setup()
     require("mason").setup()
 
     require("mason-lspconfig").setup_handlers {

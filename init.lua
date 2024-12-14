@@ -47,8 +47,8 @@ require("lazy").setup({
     { require "configs.breadcrumbs" },
     { require "configs.telescope-file-browser" },
     { require "configs.catppuccin" },
-    -- { require "configs.rose-pine"},
     { require "configs.ruby" },
+    { require "configs.nvim-codeowners" },
 })
 
 require "options"

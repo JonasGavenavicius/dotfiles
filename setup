@@ -118,7 +118,20 @@ tmux source-file ~/.tmux.conf
 # Moving Zsh configuration file, if present
 if [[ -f .zshrc ]]; then
     echo "Setting up Zsh configuration..."
-    cp .zshrc ~/
+    cp .zsh_private_config ~/
+    ZSHRC_FILE="$HOME/.zshrc"
+
+    # Line to check and add
+    LINE_TO_ADD="source ~/.zsh_custom_config"
+
+    # Check if the line already exists in .zshrc
+    if grep -Fxq "$LINE_TO_ADD" "$ZSHRC_FILE"; then
+        echo "The line '$LINE_TO_ADD' is already present in $ZSHRC_FILE."
+    else
+        # Add the line to .zshrc
+        echo "$LINE_TO_ADD" >> "$ZSHRC_FILE"
+        echo "The line '$LINE_TO_ADD' has been added to $ZSHRC_FILE."
+    fi
 fi
 
 echo "Setup complete. Neovim, Tmux, and dependencies are configured!"
