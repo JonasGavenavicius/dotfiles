@@ -6,6 +6,26 @@ return {
             local lspconfig = require("lspconfig")
             local util = require("lspconfig.util")
 
+            local enabled_features = {
+                "documentSymbols",
+                "documentLink",
+                "hover",
+                "foldingRanges",
+                "selectionRanges",
+                -- "semanticHighlighting",
+                -- "formatting",
+                "onTypeFormatting",
+                -- "diagnostics",
+                "codeActions",
+                "documentHighlights",
+                "inlayHint",
+                "completion",
+                "codeLens",
+                "definition",
+                "workspaceSymbol",
+                "signatureHelp",
+            }
+
             lspconfig.lua_ls.setup({ capabilities = capabilities })
             lspconfig.csharp_ls.setup({ capabilities = capabilities })
             lspconfig.clangd.setup({ capabilities = capabilities })
@@ -13,25 +33,35 @@ return {
             lspconfig.pyright.setup({ capabilities = capabilities })
             lspconfig.ts_ls.setup({ capabilities = capabilities })
             lspconfig.gopls.setup({ capabilities = capabilities })
-            lspconfig.ruby_lsp.setup({
-                init_options = {
-                  formatter = 'standard',
-                  linters = { 'standard' },
-                },
-              })
+            lspconfig.ruby_lsp.setup(
+                {
+                    -- mason = false,
+                    -- cmd = { "mise", "x", "--", "ruby-lsp" },
+                    cmd = { os.getenv("HOME") .. "/.rbenv/shims/ruby-lsp" },
+                    filetypes = { "ruby" },
+                    root_dir = util.root_pattern("Gemfile", ".git"),
+                    init_options = {
+                        enabledFeatures = enabled_features,
+                    },
+                    settings = {},
+                })
+            lspconfig.rubocop.setup(
+                {
+                    cmd = { "bundle", "exec", "rubocop", "--lsp" },
+                    filetypes = { "ruby" },
+                    root_dir = util.root_pattern("Gemfile", ".git"),
+                })
 
             local function opts(desc)
-                return { buffer = bufnr, desc = "LSP" .. desc }
+                return { buffer = bufnr, desc = "LSP " .. desc }
             end
-            vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts "Go to declaration")
-            vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts "Go to definition")
-            vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts "Go to implementation")
+            --vim.keymap.set("n", "gD", require("telescope.builtin").lsp_declarations, opts "Go to declaration")
+            vim.keymap.set("n", "gd", require("telescope.builtin").lsp_definitions, opts "Go to definition")
+            vim.keymap.set("n", "gi", require("telescope.builtin").lsp_implementations, opts "Go to implementation")
+            vim.keymap.set("n", "gi", require("telescope.builtin").lsp_type_definitions, opts "Go to type definition")
             vim.keymap.set("n", "K", vim.lsp.buf.hover, opts "Hover")
-            vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts "Implementations")
             vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts "Code action")
-            vim.keymap.set("n", "gr", function()
-                require("telescope.builtin").lsp_references()
-            end, opts "References")
+            vim.keymap.set("n", "gr", require("telescope.builtin").lsp_references, opts "References")
 
             vim.keymap.set("n", "[e", vim.diagnostic.goto_prev, { noremap = true, silent = true })
             vim.keymap.set("n", "]e", vim.diagnostic.goto_next, { noremap = true, silent = true })
@@ -56,5 +86,8 @@ return {
                 vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
             end
         end,
+        opts = {
+            inlay_hints = { enabled = true },
+        }
     },
 }
