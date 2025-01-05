@@ -31,7 +31,9 @@ fi
 
 # Declare packages to install
 FORMULAE=(wget node yarn neovim bat docker docker-compose rbenv fd fzf tmux gh unzip dotnet-sdk rustup go eza thefuck ripgrep ruby zoxide gh stylua)
-CASKS=(1password-cli font-maple font-monaspace font-hack-nerd-font)
+CASKS=(1password-cli font-maple font-monaspace font-hack-nerd-font ghostty)
+
+git clone https://github.com/Aloxaf/fzf-tab ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/fzf-tab
 
 # Install packages
 echo "Installing packages..."
