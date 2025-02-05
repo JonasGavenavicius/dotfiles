@@ -18,7 +18,7 @@ M.servers = {
     "terraformls",
     "emmet_ls",
     "ruby_lsp",
-    "rubocop",
+    -- "rubocop",
     "ts_ls",
     "gopls",
 }

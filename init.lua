@@ -48,8 +48,9 @@ require("lazy").setup({
     { require "configs.telescope-file-browser" },
     { require "configs.catppuccin" },
     { require "configs.ruby" },
-    { require "configs.copilot"},
+    { require "configs.copilot" },
     { require "configs.nvim-codeowners" },
+    { require "configs.neotest" },
 })
 
 require "options"

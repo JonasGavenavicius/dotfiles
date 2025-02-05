@@ -72,3 +72,7 @@ map("i", "jk", "<ESC>")
 
 -- rustaceanvim
 map("n", "<Leader>dt", "<cmd>lua vim.cmd('RustLsp testables')<CR>", { desc = "Debugger testables" })
+
+map("n", "<leader>tn", function() require("neotest").run.run() end)                   -- Run nearest test
+map("n", "<leader>tf", function() require("neotest").run.run(vim.fn.expand("%")) end) -- Run tests in current file
+map("n", "<leader>tl", function() require("neotest").run.run_last() end)              -- Run last test

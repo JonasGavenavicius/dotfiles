@@ -9,15 +9,7 @@ local M = {
         lualine_b = { "branch", "diff", "diagnostics" },
         lualine_c = {
           "filename",
-          {
-            -- Custom component for codeowners
-            function()
-              local codeowners = require("codeowners")
-              return codeowners.whoBufname(vim.fn.bufname('%'))
-            end,
-            color = { fg = '#ff9e64', gui = 'bold' }, -- Customize text color and style
-          }, 
-        },
+                  },
         lualine_x = {
           {
             lazy_status.updates,

@@ -37,9 +37,13 @@ return {
                 {
                     -- mason = false,
                     -- cmd = { "mise", "x", "--", "ruby-lsp" },
-                    cmd = { os.getenv("HOME") .. "/.rbenv/shims/ruby-lsp" },
+                    mason = false,
+                    cmd = { "mise", "x", "--", "ruby-lsp" },
                     filetypes = { "ruby" },
-                    root_dir = util.root_pattern("Gemfile", ".git"),
+                    root_dir = require("lspconfig.util").root_pattern("Gemfile", ".git"),
+                    -- cmd = { os.getenv("HOME") .. "/.rbenv/shims/ruby-lsp" },
+                    -- filetypes = { "ruby" },
+                    -- root_dir = util.root_pattern("Gemfile", ".git"),
                     init_options = {
                         enabledFeatures = enabled_features,
                     },
