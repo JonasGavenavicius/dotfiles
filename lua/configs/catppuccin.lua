@@ -10,7 +10,6 @@ M.config = {
                 dap = true,
                 dap_ui = true,
                 mason = true,
-                gitsigns = true,
                 nvimtree = true,
                 treesitter = true,
                 notify = false,
@@ -21,8 +20,8 @@ M.config = {
                     indentscope_color = "",
                 },
                 telescope = {
-                  enabled = true,
-                  style = "nvchad"
+                    enabled = true,
+                    style = "nvchad"
                 }
             },
         })

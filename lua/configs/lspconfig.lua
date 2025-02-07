@@ -60,17 +60,17 @@ return {
                 return { buffer = bufnr, desc = "LSP " .. desc }
             end
             --vim.keymap.set("n", "gD", require("telescope.builtin").lsp_declarations, opts "Go to declaration")
-            vim.keymap.set("n", "gd", require("telescope.builtin").lsp_definitions, opts "Go to definition")
-            vim.keymap.set("n", "gi", require("telescope.builtin").lsp_implementations, opts "Go to implementation")
-            vim.keymap.set("n", "gi", require("telescope.builtin").lsp_type_definitions, opts "Go to type definition")
-            vim.keymap.set("n", "K", vim.lsp.buf.hover, opts "Hover")
-            vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts "Code action")
-            vim.keymap.set("n", "gr", require("telescope.builtin").lsp_references, opts "References")
-
-            vim.keymap.set("n", "[e", vim.diagnostic.goto_prev, { noremap = true, silent = true })
-            vim.keymap.set("n", "]e", vim.diagnostic.goto_next, { noremap = true, silent = true })
-            vim.keymap.set("n", "<leader>cr", vim.lsp.buf.rename, opts "rename")
-
+            --vim.keymap.set("n", "gd", require("telescope.builtin").lsp_definitions, opts "Go to definition")
+            --vim.keymap.set("n", "gi", require("telescope.builtin").lsp_implementations, opts "Go to implementation")
+            --vim.keymap.set("n", "gi", require("telescope.builtin").lsp_type_definitions, opts "Go to type definition")
+            --vim.keymap.set("n", "K", vim.lsp.buf.hover, opts "Hover")
+            --vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts "Code action")
+            --vim.keymap.set("n", "gr", require("telescope.builtin").lsp_references, opts "References")
+            --
+            --vim.keymap.set("n", "[e", vim.diagnostic.goto_prev, { noremap = true, silent = true })
+            --vim.keymap.set("n", "]e", vim.diagnostic.goto_next, { noremap = true, silent = true })
+            --vim.keymap.set("n", "<leader>cr", vim.lsp.buf.rename, opts "rename")
+            --
             local _border = "single"
             vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
                 border = _border,

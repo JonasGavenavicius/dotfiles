@@ -14,11 +14,9 @@ vim.opt.rtp:prepend(lazypath)
 -- load plugins
 require("lazy").setup({
     { require "configs.planary" },
-    { require "configs.nvimtree" },
     { require "configs.lspkind" },
     { require "configs.web-icons" },
     { require "configs.which-key" },
-    { require "configs.gitsigns" },
     { require "configs.mason" },
     { require "configs.lspconfig" },
     { require "configs.cmp" },
@@ -31,10 +29,7 @@ require("lazy").setup({
     { require "configs.dap" },
     { require "configs.dap_ui" },
     { require "configs.go-nvim" },
-    { require "configs.trouble" },
-    { require "configs.noice" },
     { require "configs.lualine" },
-    { require "configs.alpha-nvim" },
     { require "configs.autopairs" },
     { require "configs.fzf" },
     { require "configs.markdown-preview" },
@@ -45,12 +40,10 @@ require("lazy").setup({
     { require "configs.git-worktree" },
     { require "configs.persistence" },
     { require "configs.breadcrumbs" },
-    { require "configs.telescope-file-browser" },
     { require "configs.catppuccin" },
     { require "configs.ruby" },
     { require "configs.copilot" },
-    { require "configs.nvim-codeowners" },
-    { require "configs.neotest" },
+    { require "configs.snacks" },
 })
 
 require "options"
