@@ -64,7 +64,7 @@ return {
             --vim.keymap.set("n", "gi", require("telescope.builtin").lsp_implementations, opts "Go to implementation")
             --vim.keymap.set("n", "gi", require("telescope.builtin").lsp_type_definitions, opts "Go to type definition")
             --vim.keymap.set("n", "K", vim.lsp.buf.hover, opts "Hover")
-            --vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts "Code action")
+            vim.keymap.set({ "n", "v" }, "ga", vim.lsp.buf.code_action, opts "Code action")
             --vim.keymap.set("n", "gr", require("telescope.builtin").lsp_references, opts "References")
             --
             --vim.keymap.set("n", "[e", vim.diagnostic.goto_prev, { noremap = true, silent = true })

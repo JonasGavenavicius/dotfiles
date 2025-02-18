@@ -24,7 +24,7 @@ map("n", "<C-k>", "<C-w>k", { desc = "switch window up" })
 --map('n', '<leader>bc', ':confirm bd<CR>', { noremap = true, silent = true, desc = "buffer close" })
 --
 ---- Comment
---map("n", "<leader>/", "gcc", { desc = "Toggle Comment", remap = true })
+-- map("n", "<leader>/", "gcc", { desc = "Toggle Comment", remap = true })
 --map("v", "<leader>/", "gc", { desc = "Toggle comment", remap = true })
 --
 ---- terminal
