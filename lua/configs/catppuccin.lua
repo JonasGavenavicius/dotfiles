@@ -3,7 +3,7 @@ local M = { "catppuccin/nvim", name = "catppuccin", priority = 1000 }
 M.config = {
     function()
         require("catppuccin").setup({
-            -- transparent_background = true, -- disables setting the background color.
+            transparent_background = true, -- disables setting the background color.
             integrations = {
                 cmp = true,
                 lsp_trouble = true,
@@ -31,3 +31,4 @@ M.config = {
     end
 }
 
+return M
