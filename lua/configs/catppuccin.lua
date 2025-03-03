@@ -31,4 +31,3 @@ M.config = {
     end
 }
 
-return M
