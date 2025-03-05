@@ -45,6 +45,7 @@ require("lazy").setup({
     { require "configs.ruby" },
     { require "configs.copilot" },
     { require "configs.snacks" },
+    { require "configs.neotest" }
 })
 
 require "options"
