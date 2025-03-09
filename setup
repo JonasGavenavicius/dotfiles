@@ -91,6 +91,7 @@ gem install rails
 
 echo "Installing rust tools..."
 rustup default stable
+cargo install cargo-nextest
 
 echo "Moving scripts..."
 mkdir ~/.local/bin
