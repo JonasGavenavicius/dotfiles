@@ -33,28 +33,28 @@ return {
             lspconfig.pyright.setup({ capabilities = capabilities })
             lspconfig.ts_ls.setup({ capabilities = capabilities })
             lspconfig.gopls.setup({ capabilities = capabilities })
-            lspconfig.ruby_lsp.setup(
-                {
-                    -- mason = false,
-                    -- cmd = { "mise", "x", "--", "ruby-lsp" },
-                    mason = false,
-                    cmd = { "mise", "x", "--", "ruby-lsp" },
-                    filetypes = { "ruby" },
-                    root_dir = require("lspconfig.util").root_pattern("Gemfile", ".git"),
-                    -- cmd = { os.getenv("HOME") .. "/.rbenv/shims/ruby-lsp" },
-                    -- filetypes = { "ruby" },
-                    -- root_dir = util.root_pattern("Gemfile", ".git"),
-                    init_options = {
-                        enabledFeatures = enabled_features,
-                    },
-                    settings = {},
-                })
-            lspconfig.rubocop.setup(
-                {
-                    cmd = { "bundle", "exec", "rubocop", "--lsp" },
-                    filetypes = { "ruby" },
-                    root_dir = util.root_pattern("Gemfile", ".git"),
-                })
+            -- lspconfig.ruby_lsp.setup(
+            --     {
+            --         -- mason = false,
+            --         -- cmd = { "mise", "x", "--", "ruby-lsp" },
+            --         mason = false,
+            --         cmd = { "mise", "x", "--", "ruby-lsp" },
+            --         filetypes = { "ruby" },
+            --         root_dir = require("lspconfig.util").root_pattern("Gemfile", ".git"),
+            --         -- cmd = { os.getenv("HOME") .. "/.rbenv/shims/ruby-lsp" },
+            --         -- filetypes = { "ruby" },
+            --         -- root_dir = util.root_pattern("Gemfile", ".git"),
+            --         init_options = {
+            --             enabledFeatures = enabled_features,
+            --         },
+            --         settings = {},
+            --     })
+            -- lspconfig.rubocop.setup(
+            --     {
+            --         cmd = { "bundle", "exec", "rubocop", "--lsp" },
+            --         filetypes = { "ruby" },
+            --         root_dir = util.root_pattern("Gemfile", ".git"),
+            --     })
 
             local function opts(desc)
                 return { buffer = bufnr, desc = "LSP " .. desc }

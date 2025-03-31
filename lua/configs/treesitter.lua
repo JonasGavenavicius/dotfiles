@@ -23,7 +23,7 @@ local M = {
             "proto",
             "python",
             "rego",
-            "ruby",
+            -- "ruby",
             "sql",
             "svelte",
             "yaml",

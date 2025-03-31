@@ -42,8 +42,8 @@ require("lazy").setup({
     { require "configs.breadcrumbs" },
     { require "configs.catppuccin" },
     -- { require "configs.rose-pine" },
-    { require "configs.ruby" },
-    { require "configs.copilot" },
+    -- { require "configs.ruby" },
+    -- { require "configs.copilot" },
     { require "configs.snacks" },
     { require "configs.neotest" }
 })
