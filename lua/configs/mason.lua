@@ -7,19 +7,11 @@ local M = {
 }
 
 M.servers = {
-    "html",
-    "cssls",
-    "tailwindcss",
     "lua_ls",
-    "prismals",
-    "pyright",
-    "csharp_ls",
     "jsonls",
     "terraformls",
-    "emmet_ls",
     -- "ruby_lsp",
     -- "rubocop",
-    "ts_ls",
     "gopls",
 }
 

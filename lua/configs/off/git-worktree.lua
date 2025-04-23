@@ -6,7 +6,7 @@ local M = {
 }
 
 M.config = function()
-    require("git-worktree").setup()
+    require("lua.configs.off.git-worktree").setup()
     require("telescope").load_extension("git_worktree")
 
     local map = vim.api.nvim_set_keymap

@@ -22,16 +22,17 @@ M.config = function ()
   neotest.setup({
 	adapters = {
 		require("neotest-jest"),
-		require("neotest-rust"),
+		require('rustaceanvim.neotest'),
+		-- require("neotest-rust"),
 		require("neotest-vim-test")({
 			ignore_file_types = { "python", "vim", "lua" },
 		}),
 		require("neotest-golang"),
-        require("neotest-rspec")({
-          rspec_cmd = function()
-            return vim.tbl_flatten({ "bundle", "exec", "rspec" })
-          end
-        }),
+    require("neotest-rspec")({
+      rspec_cmd = function()
+        return vim.tbl_flatten({ "bundle", "exec", "rspec" })
+      end
+    }),
 
 	},
 	icons = {
