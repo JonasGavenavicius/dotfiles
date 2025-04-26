@@ -35,7 +35,29 @@ local M = {
                 program = "${file}",
                 dlvToolPath = vim.fn.exepath "dlv",
             },
-        }
+        } 
+        dap.adapters.codelldb = {
+            type = "server",
+            port = "${port}",
+            executable = {
+              command = vim.fn.stdpath("data") .. "/mason/bin/codelldb",
+              args = { "--port", "${port}" },
+            }
+          }
+        dap.configurations.rust = {
+            {
+              name = "Debug Rust",
+              type = "codelldb",
+              request = "launch",
+              program = function()
+                -- Ask user for path to binary
+                return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/target/debug/', 'file')
+              end,
+              cwd = '${workspaceFolder}',
+              stopOnEntry = false,
+            },
+          }
+
 
         local map = vim.keymap.set
         map("n", "<Leader>dl", "<cmd>lua require'dap'.step_into()<CR>", { desc = "Debugger step into" })

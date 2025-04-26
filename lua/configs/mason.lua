@@ -3,6 +3,7 @@ local M = {
     dependencies = {
         'williamboman/mason-lspconfig.nvim',
         'nvim-lua/plenary.nvim',
+        "jay-babu/mason-nvim-dap.nvim",
     },
 }
 
@@ -28,6 +29,10 @@ function M.config()
         ensure_installed = M.servers,
         automatic_installation = true,
     }
+
+    require("mason-nvim-dap").setup({
+        ensure_installed = { "codelldb" }
+      })
 end
 
 return M
