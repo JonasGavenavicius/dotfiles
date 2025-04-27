@@ -69,7 +69,8 @@ require("lazy").setup({
     { require "configs.neotest" },
     { require "configs.alpha-nvim" },
     { require "configs.nvim-tree" },
-    { require "configs.mini-indentscope" }
+    { require "configs.mini-indentscope" },
+    { require "configs.toggleterm" }
 })
 
 require "options"
