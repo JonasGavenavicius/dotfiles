@@ -27,9 +27,7 @@ local M = {
             "sql",
             "svelte",
             "yaml",
-            "php",
             "rust",
-            "c_sharp",
         },
         auto_install = true,
         highlight = {

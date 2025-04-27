@@ -1,7 +1,8 @@
-local M = { "catppuccin/nvim", name = "catppuccin", priority = 1000 }
-
-M.config = {
-    function()
+local M = { 
+    "catppuccin/nvim", 
+    name = "catppuccin", 
+    priority = 1000,
+    config = function()
         require("catppuccin").setup({
             transparent_background = true, -- disables setting the background color.
             integrations = {
@@ -16,7 +17,7 @@ M.config = {
                 which_key = true,
                 harpoon = true,
                 mini = {
-                    enabled = false,
+                    enabled = true,
                     indentscope_color = "",
                 },
                 telescope = {
@@ -26,8 +27,8 @@ M.config = {
             },
         })
 
-        -- setup must be called before loading
-        vim.cmd.colorscheme "catppuccin"
+        -- Setup must be called before loading the colorscheme
+        vim.cmd.colorscheme("catppuccin")
     end
 }
 

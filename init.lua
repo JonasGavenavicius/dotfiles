@@ -39,6 +39,11 @@ vim.opt.rtp:prepend(lazypath)
 
 -- load plugins
 require("lazy").setup({
+    -- Themes
+    -- { require "configs.themes.catppuccin" },
+    { require "configs.themes.material" },
+
+    -- Plugins
     { require "configs.plenary" },
     { require "configs.lspkind" },
     { require "configs.web-icons" },
@@ -59,12 +64,12 @@ require("lazy").setup({
     { require "configs.harpoon" },
     { require "configs.persistence" },
     { require "configs.breadcrumbs" },
-    { require "configs.catppuccin" },
     { require "configs.ruby" },
     { require "configs.copilot" },
     { require "configs.neotest" },
     { require "configs.alpha-nvim" },
-    { require "configs.nvim-tree" }
+    { require "configs.nvim-tree" },
+    { require "configs.mini-indentscope" }
 })
 
 require "options"

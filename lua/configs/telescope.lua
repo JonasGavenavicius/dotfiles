@@ -1,4 +1,5 @@
-local M = {
+local M = 
+{
     "nvim-telescope/telescope.nvim",
     dependencies = {
         "nvim-treesitter/nvim-treesitter",
@@ -23,16 +24,18 @@ local M = {
             },
         },
     },
-    extensions_list = { "themes" },
 }
 
 M.config = function(_, opts)
     local telescope = require("telescope")
+
     telescope.setup(opts)
 
-    ---- Keybindings
+    -- Keybindings
     local map = vim.keymap.set
     local builtin = require("telescope.builtin")
+
+    -- Map keybindings to Telescope functions
     map("n", "<leader>ff", builtin.find_files, { desc = "Telescope find files" })
     map("n", "<leader>fg", builtin.live_grep, { desc = "Telescope live grep" })
     map("n", "<C-f>", builtin.live_grep, { desc = "Telescope live grep" })
