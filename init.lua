@@ -49,7 +49,6 @@ require("lazy").setup({
     { require "configs.telescope" },
     { require "configs.treesitter" },
     { require "configs.conform" },
-    { require "configs.rust" },
     { require "configs.dap" },
     { require "configs.dap_ui" },
     { require "configs.lualine" },
@@ -61,10 +60,11 @@ require("lazy").setup({
     { require "configs.persistence" },
     { require "configs.breadcrumbs" },
     { require "configs.catppuccin" },
-    -- { require "configs.ruby" },
+    { require "configs.ruby" },
     { require "configs.copilot" },
-    { require "configs.snacks" },
-    { require "configs.neotest" }
+    { require "configs.neotest" },
+    { require "configs.alpha-nvim" },
+    { require "configs.nvim-tree" }
 })
 
 require "options"

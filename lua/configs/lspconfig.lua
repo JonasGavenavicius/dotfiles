@@ -25,18 +25,32 @@ return {
           on_attach = on_attach,
         })
   
-        -- lspconfig.rust_analyzer.setup({
+        lspconfig.rust_analyzer.setup({
+          capabilities = capabilities,
+          on_attach = on_attach,
+          settings = {
+            ["rust-analyzer"] = {
+              cargo = { allFeatures = true },
+              checkOnSave = { command = "clippy" },
+            },
+          },
+        })
+  
+        -- lspconfig.ruby_lsp.setup({
         --   capabilities = capabilities,
         --   on_attach = on_attach,
+        --   mason = false,
+        --   cmd = { "mise", "x", "--", "ruby-lsp" },
+        --   filetypes = { "ruby" },
+        --   root_dir = util.root_pattern("Gemfile", ".git"),
         -- })
-  
+
         lspconfig.ruby_lsp.setup({
           capabilities = capabilities,
           on_attach = on_attach,
-          mason = false,
-          cmd = { "mise", "x", "--", "ruby-lsp" },
+          cmd = { "ruby-lsp" },
           filetypes = { "ruby" },
-          root_dir = util.root_pattern("Gemfile", ".git"),
+          root_dir = lspconfig.util.root_pattern("Gemfile", ".git"),
         })
       end,
     },
