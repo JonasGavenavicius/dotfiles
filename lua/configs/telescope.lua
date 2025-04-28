@@ -2,11 +2,11 @@ local M =
 {
     "nvim-telescope/telescope.nvim",
     dependencies = {
-        "nvim-treesitter/nvim-treesitter",
-        "nvim-lua/plenary.nvim",
-        "BurntSushi/ripgrep",
-        "nvim-telescope/telescope-ui-select.nvim",
-        "nvim-telescope/telescope-fzf-native.nvim"
+      "nvim-treesitter/nvim-treesitter",
+      "nvim-lua/plenary.nvim",
+      "BurntSushi/ripgrep",
+      "nvim-telescope/telescope-ui-select.nvim",
+      { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make', },
     },
     cmd = "Telescope",
     opts = {
@@ -29,9 +29,6 @@ local M =
 
 M.config = function(_, opts)
     local telescope = require("telescope")
-
-    -- telescope.load_extension('fzf')
-
     telescope.setup(opts)
 
     local map = vim.keymap.set

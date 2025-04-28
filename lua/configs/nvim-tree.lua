@@ -19,7 +19,7 @@ local M = {
             },
           })
   
-      vim.keymap.set('n', '<leader>e', ':NvimTreeToggle<CR>', { desc = "Toggle file explorer" })
+      vim.keymap.set('n', '<leader>el', ':NvimTreeToggle<CR>', { desc = "Toggle nvim-tree file explorer" })
     end,
   }
 
