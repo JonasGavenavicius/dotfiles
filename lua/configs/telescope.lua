@@ -6,6 +6,7 @@ local M =
         "nvim-lua/plenary.nvim",
         "BurntSushi/ripgrep",
         "nvim-telescope/telescope-ui-select.nvim",
+        "nvim-telescope/telescope-fzf-native.nvim"
     },
     cmd = "Telescope",
     opts = {
@@ -29,19 +30,25 @@ local M =
 M.config = function(_, opts)
     local telescope = require("telescope")
 
+    -- telescope.load_extension('fzf')
+
     telescope.setup(opts)
 
-    -- Keybindings
     local map = vim.keymap.set
     local builtin = require("telescope.builtin")
-
-    -- Map keybindings to Telescope functions
-    map("n", "<leader>ff", builtin.find_files, { desc = "Telescope find files" })
-    map("n", "<leader>fg", builtin.live_grep, { desc = "Telescope live grep" })
-    map("n", "<C-f>", builtin.live_grep, { desc = "Telescope live grep" })
-    map("n", "<leader>fb", builtin.buffers, { desc = "Telescope buffers" })
-    map("n", "<leader>fh", builtin.help_tags, { desc = "Telescope help tags" })
-    map("n", "<leader>gt", "<cmd>Telescope git_status<CR>", { desc = "Git status" })
+    
+    -- Define individual mappings directly
+    map("n", "<leader>ff", builtin.find_files, { desc = "Telescope: Find Files" })
+    map("n", "<leader>fg", builtin.live_grep, { desc = "Telescope: Live Grep" })
+    map("n", "<C-f>",      builtin.live_grep, { desc = "Telescope: Live Grep" })
+    map("n", "<leader>fb", builtin.buffers, { desc = "Telescope: Buffers" })
+    map("n", "<leader>fh", builtin.help_tags, { desc = "Telescope: Help Tags" })
+    map("n", "<leader>gt", function() vim.cmd("Telescope git_status") end, { desc = "Telescope: Git Status" })
+    
+    -- LSP-related mappings
+    map("n", "grr", builtin.lsp_references, { desc = "Telescope: LSP References" })
+    map("n", "gri", builtin.lsp_implementations, { desc = "Telescope: LSP Implementations" })
+    map("n", "gO", builtin.lsp_document_symbols, { desc = "Telescope: LSP Document Symbols" })
 end
 
 return M

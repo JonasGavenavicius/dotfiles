@@ -51,6 +51,10 @@ require("lazy").setup({
     { require "configs.mason" },
     { require "configs.lspconfig" },
     { require "configs.cmp" },
+    {
+        'nvim-telescope/telescope-fzf-native.nvim',
+        build = 'make',
+    },
     { require "configs.telescope" },
     { require "configs.treesitter" },
     { require "configs.conform" },
@@ -70,7 +74,8 @@ require("lazy").setup({
     { require "configs.alpha-nvim" },
     { require "configs.nvim-tree" },
     { require "configs.mini-indentscope" },
-    { require "configs.toggleterm" }
+    { require "configs.toggleterm" },
+    { require "configs.gitsigns"},
 })
 
 require "options"
