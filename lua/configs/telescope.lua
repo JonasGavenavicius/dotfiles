@@ -39,7 +39,7 @@ M.config = function(_, opts)
     map("n", "<leader>fg", builtin.live_grep, { desc = "Telescope: Live Grep" })
     map("n", "<C-f>",      builtin.live_grep, { desc = "Telescope: Live Grep" })
     map("n", "<leader>fb", builtin.buffers, { desc = "Telescope: Buffers" })
-    map("n", "<leader>fh", builtin.help_tags, { desc = "Telescope: Help Tags" })
+    map("n", "<leader>fH", builtin.help_tags, { desc = "Telescope: Help Tags" })
     map("n", "<leader>gt", function() vim.cmd("Telescope git_status") end, { desc = "Telescope: Git Status" })
     
     -- LSP-related mappings
