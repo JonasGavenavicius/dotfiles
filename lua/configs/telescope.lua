@@ -49,7 +49,14 @@ M.config = function(_, opts)
 
     -- Safe global keymaps (outside of Telescope UI)
     map("n", "<leader>ff", builtin.find_files, { desc = "Telescope: Find Files" })
-    map("n", "<leader>fg", builtin.live_grep, { desc = "Telescope: Live Grep" })
+    map("n", "<leader>fg", function()
+      builtin.live_grep({
+        additional_args = function()
+          return { "--fixed-strings" }
+        end,
+      })
+    end, { desc = "Telescope: Grep (Literal)" })
+    map("n", "<leader>fr", builtin.live_grep, { desc = "Telescope: Regex Grep" })
     map("n", "<leader>fb", builtin.buffers, { desc = "Telescope: Buffers" })
     map("n", "<leader>fH", builtin.help_tags, { desc = "Telescope: Help Tags" })
     map("n", "<leader>gt", builtin.git_status, { desc = "Telescope: Git Status" })
