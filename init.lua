@@ -40,8 +40,8 @@ vim.opt.rtp:prepend(lazypath)
 -- load plugins
 require("lazy").setup({
     -- Themes
-    -- { require "configs.themes.catppuccin" },
-    { require "configs.themes.material" },
+    { require "configs.themes.catppuccin" },
+    -- { require "configs.themes.material" },
 
     -- Plugins
     { require "configs.plenary" },

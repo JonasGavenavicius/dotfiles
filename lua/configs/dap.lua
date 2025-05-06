@@ -2,12 +2,11 @@ local M = {
     'mfussenegger/nvim-dap',
     dependencies = {
       "leoluz/nvim-dap-go",
-      -- "suketa/nvim-dap-ruby",
+      "suketa/nvim-dap-ruby",
       "theHamsta/nvim-dap-virtual-text"
     },
     config = function()
         local dap, dapui = require("dap"), require("dapui")
-        -- require("dap-ruby").setup()
         dap.listeners.before.attach.dapui_config = function()
             dapui.open()
         end
@@ -20,6 +19,33 @@ local M = {
         dap.listeners.before.event_exited.dapui_config = function()
             dapui.close()
         end
+
+    require("dap-ruby").setup()
+
+    dap.adapters.ruby = {
+      type = "executable",
+      command = "rdebug-ide",
+      args = { "--host", "127.0.0.1", "--port", "1234" }
+    }
+
+    dap.configurations.ruby = {
+      {
+        type = "ruby",
+        name = "Debug current RSpec file",
+        request = "launch",
+        program = "${file}",
+        cwd = "${workspaceFolder}",
+        useBundler = true,
+        command = "rspec",
+      },
+      {
+        type = "ruby",
+        name = "Debug ruby file",
+        request = "launch",
+        program = "${file}",
+        cwd = "${workspaceFolder}",
+      },
+    }
 
         dap.adapters.go = {
             type = "executable",
