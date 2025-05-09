@@ -4,6 +4,7 @@ local M = {
     event = "VimEnter",
     dependencies = {
       "nvim-tree/nvim-web-devicons", -- icons for dashboard
+      "stevearc/resession.nvim",
     },
     config = function()
       -- Setup resession first
