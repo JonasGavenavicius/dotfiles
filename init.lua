@@ -72,6 +72,8 @@ require("lazy").setup({
     { require "configs.mini-indentscope" },
     { require "configs.toggleterm" },
     { require "configs.gitsigns"},
+    { require "configs.nvim-scrollbar"},
+  
 })
 
 require "options"

@@ -25,4 +25,3 @@ autocmd({ "UIEnter", "BufReadPost", "BufNewFile" }, {
         end
     end,
 })
-
