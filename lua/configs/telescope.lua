@@ -68,7 +68,7 @@ M.config = function(_, opts)
     map("n", "grh", builtin.lsp_document_symbols, { desc = "Telescope: LSP Document Symbols" })
     map("n", "grdd", builtin.lsp_definitions, { desc = "Telescope: LSP Definitions" })
     map("n", "grdt", builtin.lsp_type_definitions, { desc = "Telescope: LSP Type Definitions" })
-    map("n", "fd", builtin.diagnostics, { desc = "Telescope: LSP Diagnostics" })
+    map("n", "<leader>fd", builtin.diagnostics, { desc = "Telescope: LSP Diagnostics" })
 end
 
 return M

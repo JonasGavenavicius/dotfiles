@@ -13,8 +13,12 @@ return {
           local opts = function(desc)
             return { buffer = bufnr, desc = "LSP: " .. desc }
           end
-          vim.keymap.set({ "n", "v" }, "ga", vim.lsp.buf.code_action, opts("Code Action"))
-  
+        vim.keymap.set({ "n", "v" }, "ga", vim.lsp.buf.code_action, opts("Code Action"))
+        vim.keymap.set("n", "<leader>ld", function()
+          vim.diagnostic.setloclist()
+          vim.cmd("lopen")
+        end, { desc = "Open File Diagnostics (Loclist)" })
+
           local border = "single"
           vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = border })
           vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = border })
