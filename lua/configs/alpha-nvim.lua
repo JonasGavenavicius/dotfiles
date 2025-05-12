@@ -10,14 +10,12 @@ local M = {
       local dashboard = require("alpha.themes.dashboard")
 
       dashboard.section.header.val = {
-        " ",
-        " ███╗   ██╗██╗   ██╗██╗███╗   ███╗",
-        " ████╗  ██║██║   ██║██║████╗ ████║",
-        " ██╔██╗ ██║██║   ██║██║██╔████╔██║",
-        " ██║╚██╗██║╚██╗ ██╔╝██║██║╚██╔╝██║",
-        " ██║ ╚████║ ╚████╔╝ ██║██║ ╚═╝ ██║",
-        " ╚═╝  ╚═══╝  ╚═══╝  ╚═╝╚═╝     ╚═╝",
-        " ",
+        [[                               ]],
+        [[ Wake up, Neo...              ]],
+        [[ The Matrix has you...        ]],
+        [[ Follow the white rabbit.     ]],
+        [[ Knock, knock, Neo.           ]],
+        [[                               ]],
       }
 
       dashboard.section.buttons.val = {
