@@ -28,7 +28,8 @@ local M = {
       }
 
       dashboard.section.footer.val = {
-        "🚀 Happy hacking with Neovim!",
+        "WAR IS PEACE | FREEDOM IS SLAVERY | IGNORANCE IS STRENGTH",
+        "Big Brother is watching you...",
       }
 
       dashboard.opts.opts.noautocmd = true
