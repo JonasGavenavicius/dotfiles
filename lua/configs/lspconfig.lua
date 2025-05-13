@@ -14,7 +14,7 @@ return {
             return { buffer = bufnr, desc = "LSP: " .. desc }
           end
         vim.keymap.set({ "n", "v" }, "ga", vim.lsp.buf.code_action, opts("Code Action"))
-        vim.keymap.set("n", "<leader>ld", function()
+        vim.keymap.set("n", "grl", function()
           vim.diagnostic.setloclist()
           vim.cmd("lopen")
         end, { desc = "Open File Diagnostics (Loclist)" })
