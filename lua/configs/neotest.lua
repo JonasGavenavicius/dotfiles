@@ -52,6 +52,14 @@ M.config = function ()
       watching = "󰈈",
     },
   })
+
+  vim.keymap.set("n", "<leader>trk", function()
+    vim.fn.jobstart({ "pkill", "-f", "rspec" }, {
+      on_exit = function()
+        print("Killed all rspec processes.")
+      end,
+    })
+  end, { desc = "Kill all running RSpec tests" })
 end
 
 M.keys = {
