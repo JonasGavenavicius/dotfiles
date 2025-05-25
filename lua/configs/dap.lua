@@ -1,27 +1,27 @@
 local M = {
-    'mfussenegger/nvim-dap',
-    dependencies = {
-      "leoluz/nvim-dap-go",
-      "suketa/nvim-dap-ruby",
-      "theHamsta/nvim-dap-virtual-text"
-    },
-    config = function()
-        local dap, dapui = require("dap"), require("dapui")
-        dap.listeners.before.attach.dapui_config = function()
-            dapui.open()
-        end
-        dap.listeners.before.launch.dapui_config = function()
-            dapui.open()
-        end
-        dap.listeners.before.event_terminated.dapui_config = function()
-            dapui.close()
-        end
-        dap.listeners.before.event_exited.dapui_config = function()
-            dapui.close()
-        end
+  'mfussenegger/nvim-dap',
+  dependencies = {
+    "leoluz/nvim-dap-go",
+    "suketa/nvim-dap-ruby",
+    "theHamsta/nvim-dap-virtual-text",
+    "rcarriga/nvim-dap-ui"
+  },
+  config = function()
+    local dap, dapui = require("dap"), require("dapui")
 
+    -- Setup plugins
+    dapui.setup()
+    require("dap-go").setup()
     require("dap-ruby").setup()
+    require("nvim-dap-virtual-text").setup({})
 
+    -- UI open/close logic
+    dap.listeners.before.attach.dapui_config = function() dapui.open() end
+    dap.listeners.before.launch.dapui_config = function() dapui.open() end
+    dap.listeners.before.event_terminated.dapui_config = function() dapui.close() end
+    dap.listeners.before.event_exited.dapui_config = function() dapui.close() end
+
+    -- Ruby adapter + config
     dap.adapters.ruby = {
       type = "executable",
       command = "readapt",
@@ -38,12 +38,7 @@ local M = {
       },
     }
 
-    dap.adapters.go = {
-      type = "executable",
-      command = "node",
-      args = { "go-debug-adapter" },
-    }
-
+    -- Go configuration (adapter handled by dap-go)
     dap.configurations.go = {
       {
         type = "go",
@@ -51,10 +46,11 @@ local M = {
         request = "launch",
         showLog = true,
         program = "${file}",
-        dlvToolPath = vim.fn.exepath "dlv",
+        dlvToolPath = vim.fn.exepath("dlv"),
       },
     }
 
+    -- Rust (codelldb)
     dap.adapters.codelldb = {
       type = "server",
       port = "${port}",
@@ -70,38 +66,26 @@ local M = {
         type = "codelldb",
         request = "launch",
         program = function()
-          -- Ask user for path to binary
           return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/target/debug/', 'file')
         end,
         cwd = '${workspaceFolder}',
         stopOnEntry = false,
       },
     }
-
-
-    local map = vim.keymap.set
-    map("n", "<Leader>dl", "<cmd>lua require'dap'.step_into()<CR>", { desc = "Debugger step into" })
-    map("n", "<Leader>dj", "<cmd>lua require'dap'.step_over()<CR>", { desc = "Debugger step over" })
-    map("n", "<Leader>dk", "<cmd>lua require'dap'.step_out()<CR>", { desc = "Debugger step out" })
-    map("n", "<Leader>dc>", "<cmd>lua require'dap'.continue()<CR>", { desc = "Debugger continue" })
-    map("n", "<Leader>db", "<cmd>lua require'dap'.toggle_breakpoint()<CR>", { desc = "Debugger toggle breakpoint" })
-    map("n", "<Leader>dd", "<cmd>lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>", { desc = "Debugger set conditional breakpoint" })
-    map("n", "<Leader>de", "<cmd>lua require'dap'.terminate()<CR>", { desc = "Debugger reset" })
-    map("n", "<Leader>dr", "<cmd>lua require'dap'.run_last()<CR>", { desc = "Debugger run last" })
-
-    require("dap-go").setup()
-    require("nvim-dap-virtual-text").setup({})
   end,
 }
 
 M.keys = function()
   return {
-    { "<F5>", require("dap").continue },
-    { "<F6>", require("dap").terminate },
-    { "<F2>", require("dap").step_into },
-    { "<F3>", require("dap").step_over },
-    { "<F4>", require("dap").step_out },
-    { "<leader>db", require("dap").toggle_breakpoint },
+    { "<F2>", function() require("dap").step_into() end, desc = "DAP step into" },
+    { "<F3>", function() require("dap").step_over() end, desc = "DAP step over" },
+    { "<F4>", function() require("dap").step_out() end, desc = "DAP step out" },
+    { "<F5>", function() require("dap").continue() end, desc = "DAP continue" },
+    { "<F6>", function() require("dap").terminate() end, desc = "DAP terminate" },
+    { "<Leader>db", function() require("dap").toggle_breakpoint() end, desc = "Toggle breakpoint" },
+    { "<Leader>dd", function() require("dap").set_breakpoint(vim.fn.input("Condition: ")) end, desc = "Conditional breakpoint" },
+    { "<Leader>dr", function() require("dap").run_last() end, desc = "Run last" },
   }
 end
+
 return M

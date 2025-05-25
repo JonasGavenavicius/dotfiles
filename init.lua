@@ -55,7 +55,6 @@ require("lazy").setup({
   { require "configs.treesitter" },
   { require "configs.conform" },
   { require "configs.dap" },
-  { require "configs.dap_ui" },
   { require "configs.lualine" },
   { require "configs.autopairs" },
   { require "configs.nvim-lint" },
