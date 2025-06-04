@@ -137,4 +137,17 @@ if [[ -f .zshrc ]]; then
     fi
 fi
 
+
+ALIAS_COMMAND='alias gpick='\''git log -n 30 --oneline | fzf --no-sort | awk "{print \$1}" | xargs -r git show'\'''
+
+# Check if alias already exists
+if grep -Fxq "$ALIAS_COMMAND" "$ZSHRC_FILE"; then
+  echo "Alias already exists in $ZSHRC_FILE"
+else
+  echo "$ALIAS_COMMAND" >> "$ZSHRC_FILE"
+  echo "Alias added to $ZSHRC_FILE"
+fi
+
+echo "Reload your shell or run 'source $ZSHRC_FILE' to use 'gpick'"
+
 echo "Setup complete. Neovim, Tmux, and dependencies are configured!"
