@@ -51,7 +51,6 @@ require("lazy").setup({
   { require "configs.mason" },
   { require "configs.lspconfig" },
   { require "configs.cmp" },
-  { require "configs.telescope" },
   { require "configs.treesitter" },
   { require "configs.conform" },
   { require "configs.dap" },
@@ -72,7 +71,15 @@ require("lazy").setup({
   { require "configs.toggleterm" },
   { require "configs.gitsigns"},
   { require "configs.nvim-scrollbar"},
-  { require "configs.gitlinker" }
+  { require "configs.gitlinker" },
+  {
+    "git-owners",
+    dir = vim.fn.stdpath("config") .. "/lua/git-owners",
+    config = function()
+      require("git-owners").setup()
+    end,
+  },
+  { require "configs.snacks" },
 })
 
 require "options"

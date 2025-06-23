@@ -207,6 +207,14 @@ ins_right {
 
 ins_right {
   function()
+    return require('git-owners').get_owners_statusline()
+  end,
+  color = { fg = colors.cyan, gui = 'bold' },
+  cond = conditions.hide_in_width,
+}
+
+ins_right {
+  function()
     return '▊'
   end,
   color = { fg = colors.blue },
@@ -216,33 +224,5 @@ ins_right {
 M.config = function ()
   require("lualine").setup(config)
 end
-
--- M.config = function ()
---   local lazy_status = require("lazy.status")
---     require("lualine").setup({
---       theme = "catppuccin",
---       sections = {
---         lualine_a = { "mode" },
---         lualine_b = { "branch", "diff", "diagnostics" },
---         lualine_c = {
---           "filename",
---                   },
---         lualine_x = {
---           {
---             lazy_status.updates,
---             cond = lazy_status.has_updates,
---             color = { fg = "#f7768e" },
---           },
---           "encoding",
---           "fileformat",
---           "filetype",
---         },
---         lualine_y = { "progress" },
---         lualine_z = { "location" },
---       },
---       extensions = { "fzf", "lazy", "mason", "nvim-dap-ui", "trouble" },
---     })
---
--- end
 
 return M
