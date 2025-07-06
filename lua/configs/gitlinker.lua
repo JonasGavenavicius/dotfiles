@@ -2,7 +2,6 @@ return {
   "linrongbin16/gitlinker.nvim",
   dependencies = {
     "nvim-lua/plenary.nvim",
-    "telescope.nvim",
   },
   config = function()
     require("gitlinker").setup()
