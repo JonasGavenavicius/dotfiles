@@ -80,6 +80,7 @@ require("lazy").setup({
     end,
   },
   { require "configs.snacks" },
+  { require "configs.diffview" },
 })
 
 require "options"
