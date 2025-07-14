@@ -4,6 +4,7 @@ local M = {
   lazy = false,
   opts = {
     picker = {
+      -- layout = { preset = "ivy", layout = { position = "bottom" } },
       win = {
         input = {
           keys = {

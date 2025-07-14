@@ -72,13 +72,7 @@ require("lazy").setup({
   { require "configs.gitsigns"},
   { require "configs.nvim-scrollbar"},
   { require "configs.gitlinker" },
-  {
-    "git-owners",
-    dir = vim.fn.stdpath("config") .. "/lua/git-owners",
-    config = function()
-      require("git-owners").setup()
-    end,
-  },
+  { require "configs.git-owners" },
   { require "configs.snacks" },
   { require "configs.diffview" },
 })
