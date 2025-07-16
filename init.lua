@@ -81,6 +81,9 @@ require("lazy").setup({
   },
   { require "configs.snacks" },
   { require "configs.diffview" },
+  { require "configs.twilight"},
+  { require "configs.render-markdown" },
+  -- { require 'configs.avante' },
 })
 
 require "options"

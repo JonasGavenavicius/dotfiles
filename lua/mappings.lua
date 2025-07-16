@@ -61,3 +61,7 @@ vim.keymap.set("n", "<leader>rg", function()
     end)
   end)
 end, { desc = "Replace string in all args files (confirm each)" })
+
+vim.keymap.set("n", "grb", function()
+  vim.lsp.buf.format()
+end, { desc = "Format current buffer" })
