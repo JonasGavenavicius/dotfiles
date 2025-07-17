@@ -42,6 +42,7 @@ require("lazy").setup({
   -- Themes
   { require "configs.themes.catppuccin" },
   -- { require "configs.themes.material" },
+  -- { require "configs.themes.cyberdream" },
 
   -- Plugins
   { require "configs.plenary" },

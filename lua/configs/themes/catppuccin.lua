@@ -4,6 +4,7 @@ local M = {
   priority = 1000,
   config = function()
     require("catppuccin").setup({
+      flavour = "frappe", -- mocha, macchiato, frappe, latte
       transparent_background = true, -- disables setting the background color.
       -- color_overrides = {
       --     mocha = {
