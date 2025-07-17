@@ -25,6 +25,10 @@ M.config = function()
   map("n", "<leader>h2", function() harpoon:list():select(2) end, { desc = 'Harpoon select 2 file' })
   map("n", "<leader>h3", function() harpoon:list():select(3) end, { desc = 'Harpoon select 3 file' })
   map("n", "<leader>h4", function() harpoon:list():select(4) end, { desc = 'Harpoon select 4 file' })
+  map("n", "<leader>h5", function() harpoon:list():select(4) end, { desc = 'Harpoon select 5 file' })
+  map("n", "<leader>h6", function() harpoon:list():select(4) end, { desc = 'Harpoon select 6 file' })
+  map("n", "<leader>h7", function() harpoon:list():select(4) end, { desc = 'Harpoon select 7 file' })
+  map("n", "<leader>h8", function() harpoon:list():select(4) end, { desc = 'Harpoon select 8 file' })
 
   -- Navigation
   map("n", "<leader>hp", function() harpoon:list():prev() end, { desc = 'Harpoon select prev file' })
