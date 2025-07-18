@@ -44,6 +44,8 @@ opt.wrap = false
 -- interval for writing swap file to disk, also used by gitsigns
 o.updatetime = 250
 
+o.winborder = 'rounded'
+
 -- go to previous/next line with h,l,left arrow and right arrow
 -- when cursor reaches end/beginning of line
 opt.whichwrap:append "<>[]hl"
