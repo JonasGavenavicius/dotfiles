@@ -1,53 +1,87 @@
 local opt = vim.opt
-local o = vim.o
 local g = vim.g
 
--------------------------------------- globals -----------------------------------------
-g.toggle_theme_icon = "   "
+-- GENERAL -------------------------------------------------------------------
 
--------------------------------------- options ------------------------------------------
-o.laststatus = 3
-o.showmode = false
+g.mapleader = " " -- Set <leader> key to space
+g.toggle_theme_icon = "   " -- Custom global var for UI (used in statusline, etc.)
 
-o.clipboard = "unnamedplus"
-o.cursorline = true
-o.cursorlineopt = "number"
+opt.termguicolors = true -- Enable 24-bit RGB colors in the terminal
 
--- Indenting
-o.expandtab = true
-o.shiftwidth = 2
-o.smartindent = true
-o.tabstop = 2
-o.softtabstop = 2
+-- UI ------------------------------------------------------------------------
 
-opt.fillchars = { eob = " " }
-o.ignorecase = true
-o.smartcase = true
-o.mouse = "a"
+opt.cursorline = true         -- Highlight current line
+opt.laststatus = 3            -- Global statusline (one bar across all splits)
+opt.showmode = false          -- Hide mode like -- INSERT -- (plugin usually handles it)
+opt.number = true             -- Show line numbers
+opt.relativenumber = true     -- Relative line numbers (helps with movement)
+opt.numberwidth = 2           -- Width of number column
+opt.ruler = false             -- Don't show ruler (cursor position) in command line
+opt.signcolumn = "yes"        -- Always show sign column
+opt.cursorline = true         -- Highlight current line
+opt.cursorlineopt = "number"  -- Only highlight the number column
+opt.fillchars = { eob = " " } -- Remove ~ from end-of-buffer lines
+opt.winborder = "rounded"     -- Use rounded borders (for floating windows etc.)
+opt.wrap = false              -- Disable line wrapping
+opt.mouse = "a"               -- Enable mouse in all modes
+opt.scrolloff = 10            -- Keep 10 lines above/below cursor
+opt.sidescrolloff = 8         -- Keep 8 columns left/right of cursor
 
--- Numbers
-o.number = true
-o.numberwidth = 2
-o.ruler = false
+-- STARTUP -------------------------------------------------------------------
 
--- disable nvim intro
-opt.shortmess:append "sI"
+opt.shortmess:append("sI") -- Disable startup intro message
 
-o.signcolumn = "yes"
-o.splitbelow = true
-o.splitright = true
-o.timeoutlen = 400
-o.undofile = true
-o.relativenumber = true -- Enable relative line numbers
-opt.wrap = false
+-- INDENTATION ---------------------------------------------------------------
 
--- interval for writing swap file to disk, also used by gitsigns
-o.updatetime = 250
+opt.expandtab = true   -- Use spaces instead of tabs
+opt.shiftwidth = 2     -- Number of spaces to use for indentation
+opt.tabstop = 2        -- Width of a tab character
+opt.softtabstop = 2    -- Number of spaces for tab key
+opt.smartindent = true -- Enable smart indentation
+opt.autoindent = true  -- Copy indent from current line
 
-o.winborder = 'rounded'
+-- SEARCH --------------------------------------------------------------------
 
--- go to previous/next line with h,l,left arrow and right arrow
--- when cursor reaches end/beginning of line
-opt.whichwrap:append "<>[]hl"
+opt.ignorecase = true -- Ignore case in search by default
+opt.smartcase = true  -- ...unless uppercase used in search term
+opt.incsearch = true  -- Show search matches as you type
 
--- g.mapleader = " "
+-- NAVIGATION ----------------------------------------------------------------
+
+opt.splitright = true          -- Vertical splits open to the right
+opt.splitbelow = true          -- Horizontal splits open below
+opt.timeoutlen = 400           -- Time to wait for mapped sequence (ms)
+opt.whichwrap:append("<>[]hl") -- Allow left/right arrow and h/l to wrap lines
+
+-- FILE HANDLING -------------------------------------------------------------
+
+opt.clipboard = "unnamedplus" -- Use system clipboard for yank/paste
+opt.undofile = true           -- Enable persistent undo
+opt.autoread = true           -- Reload file if changed outside of nvim
+opt.autowrite = false         -- Don’t auto-save on buffer switch
+opt.updatetime = 250          -- Time before swap/diagnostics are triggered
+
+-- DIAGNOSTICS ---------------------------------------------------------------
+
+vim.diagnostic.config({
+    signs = {
+        text = {
+            [vim.diagnostic.severity.ERROR] = '', -- Error sign
+            [vim.diagnostic.severity.WARN]  = '', -- Warning sign
+            [vim.diagnostic.severity.HINT]  = '󰌵', -- Hint sign
+            [vim.diagnostic.severity.INFO]  = '', -- Info sign
+        },
+        linehl = {
+            [vim.diagnostic.severity.ERROR] = 'ErrorMsg', -- Line highlight on error
+        },
+        numhl = {
+            [vim.diagnostic.severity.WARN] = 'WarningMsg', -- Number column highlight on warning
+        },
+    },
+    underline = true,         -- Underline diagnostics
+    update_in_insert = false, -- Don’t update diagnostics while typing
+    severity_sort = true,     -- Sort diagnostics by severity
+    virtual_lines = {
+        current_line = true,  -- Only show virtual diagnostic lines on the current line
+    },
+})
