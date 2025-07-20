@@ -61,6 +61,10 @@ opt.autoread = true           -- Reload file if changed outside of nvim
 opt.autowrite = false         -- Don’t auto-save on buffer switch
 opt.updatetime = 250          -- Time before swap/diagnostics are triggered
 
+-- PERFORMANCE --------------------------------------------------------------
+opt.redrawtime = 10000     -- Allow up to 10s to render/redraw heavy buffers
+opt.maxmempattern = 20000  -- Allow up to 20MB for regex/syntax pattern matching
+
 -- DIAGNOSTICS ---------------------------------------------------------------
 
 vim.diagnostic.config({
