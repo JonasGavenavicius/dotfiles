@@ -4,7 +4,7 @@ local M = {
     config = function()
         require("nvim-tree").setup({
             view = {
-              width = 30,
+              width = 60,
             },
             renderer = {
               group_empty = true,

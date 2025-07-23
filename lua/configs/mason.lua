@@ -11,14 +11,14 @@ M.servers = {
   "lua_ls",
   "jsonls",
   "terraformls",
-  "gopls",
   "rust_analyzer",
-  "ruby_lsp"
+  "ruby_lsp",
+  "gopls",
 }
 
 function M.config()
   require("mason").setup()
-  require("mason-lspconfig").setup()
+  -- require("mason-lspconfig").setup()
 
   require("mason-nvim-dap").setup({
     ensure_installed = { "codelldb" }
