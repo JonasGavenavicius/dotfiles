@@ -24,6 +24,9 @@ if command -v zoxide > /dev/null; then
   eval "$(zoxide init zsh)"
 fi
 
+alias cd='z'
+alias ls='eza'
+
 # Load syntax highlighting from manual install path
 if [[ -f "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ]]; then
   source "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
@@ -37,14 +40,5 @@ fi
 # ----- Ruby -------
 export PATH="$HOME/.local/share/gem/ruby/3.3.0/bin:$PATH"
 
-# ---- TheFuck -----
-
-# thefuck alias
-eval $(thefuck --alias)
-eval $(thefuck --alias fk)
-
-# Set up fzf key bindings and fuzzy completion
-eval "$(fzf --zsh)"
-
-# Set zoxide
-eval "$(zoxide init zsh)"
+# Add gpick alias
+alias gpick='git log -n 30 --oneline | fzf --no-sort | awk "{print \$1}" | xargs -r git show'

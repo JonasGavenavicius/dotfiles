@@ -1,0 +1,28 @@
+* {
+  font-family: "JetBrainsMono Nerd Font", monospace;
+  font-size: 14px;
+  color: #eeeeee;
+  background-color: #1e1e2e;
+}
+
+window#waybar {
+  border-bottom: 2px solid #89b4fa;
+}
+
+#clock, #pulseaudio, #network, #tray, #battery, #cpu, #memory, #disk, #custom-power {
+  padding: 0 10px;
+}
+
+#hyprland-workspaces button {
+  padding: 0 8px;
+  margin: 0 2px;
+  border: none;
+  background: transparent;
+  color: #cdd6f4;
+}
+
+#hyprland-workspaces button.active {
+  background: #89b4fa;
+  color: #1e1e2e;
+  border-radius: 8px;
+}

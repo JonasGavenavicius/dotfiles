@@ -1,0 +1,17 @@
+FROM debian:latest
+
+ENV DEBIAN_FRONTEND=noninteractive
+
+RUN apt-get update && apt-get install -y sudo git curl
+RUN useradd -m -s /bin/bash user && echo "user:user" | chpasswd && usermod -aG sudo user
+RUN echo "user ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/user
+
+USER user
+WORKDIR /home/user
+
+COPY --chown=user:user . /home/user/dotfiles
+
+WORKDIR /home/user/dotfiles
+RUN sudo chmod +x bash/*.sh
+
+CMD ["/home/user/dotfiles/bash/install.sh"]
