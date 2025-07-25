@@ -50,7 +50,7 @@ local function replace_cmd(scope, confirm)
 end
 
 -- Replace mappings
-map("n", "<leader>rS", replace_cmd("%", false), { desc = "Replace in buffer (no confirm)" })
-map("n", "<leader>rs", replace_cmd("%", true), { desc = "Replace in buffer (confirm each)" })
-map("n", "<leader>rG", replace_cmd("argdo", false), { desc = "Replace in all args (no confirm)" })
-map("n", "<leader>rg", replace_cmd("argdo", true), { desc = "Replace in all args (confirm each)" })
+map("n", "<leader>sS", replace_cmd("%", false), { desc = "Replace in buffer (no confirm)" })
+map("n", "<leader>ss", replace_cmd("%", true), { desc = "Replace in buffer (confirm each)" })
+map("n", "<leader>sG", replace_cmd("argdo", false), { desc = "Replace in all args (no confirm)" })
+map("n", "<leader>sg", replace_cmd("argdo", true), { desc = "Replace in all args (confirm each)" })

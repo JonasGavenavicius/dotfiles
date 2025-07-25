@@ -17,7 +17,7 @@ local M = {
   end,
 }
 
-M.config = function ()
+M.config = function()
   local neotest = require("neotest")
   neotest.setup({
     adapters = {
@@ -52,7 +52,26 @@ M.config = function ()
       watching = "󰈈",
     },
   })
+  function RunNearestTestInTerminal()
+    local file = vim.fn.expand("%")
+    local line = vim.fn.line(".")
+    local cmd = "bundle exec rspec " .. file .. ":" .. line
 
+    if test_term == nil then
+      local Terminal = require("toggleterm.terminal").Terminal
+      test_term = Terminal:new({
+        cmd = cmd,
+        direction = "float",
+        on_exit = function() test_term = nil end,
+      })
+    else
+      test_term.cmd = cmd
+    end
+
+    test_term:toggle()
+  end
+
+  vim.keymap.set("n", "<leader>trn", RunNearestTestInTerminal, { desc = "Run nearest ruby test in terminal" })
   vim.keymap.set("n", "<leader>trk", function()
     vim.fn.jobstart({ "pkill", "-f", "rspec" }, {
       on_exit = function()
@@ -63,15 +82,14 @@ M.config = function ()
 end
 
 M.keys = {
-  { "<leader>tn", function() require("neotest").run.run() end, desc = "Run nearest test" },
-  { "<leader>td", function() require("neotest").run.run({strategy = "dap"}) end, desc = "Run nearest test debug" },
-  -- { "<leader>t/", function() require("neotest").run.run({strategy = toggleterm_strategy}) end, desc = "Run nearest test toggleterm" },
-  { "<leader>tf", function() require("neotest").run.run(vim.fn.expand("%")) end, desc = "Run file tests" },
-  { "<leader>ta", function() require("neotest").run.run({ suite = true }) end, desc = "Run test suite" },
-  { "<leader>tl", function() require("neotest").run.run_last() end, desc = "Run last test" },
-  { "<leader>ts", function() require("neotest").run.stop() end, desc = "Stop test" },
+  { "<leader>tn", function() require("neotest").run.run() end,                     desc = "Run nearest test" },
+  { "<leader>td", function() require("neotest").run.run({ strategy = "dap" }) end, desc = "Run nearest test debug" },
+  { "<leader>tf", function() require("neotest").run.run(vim.fn.expand("%")) end,   desc = "Run file tests" },
+  { "<leader>ta", function() require("neotest").run.run({ suite = true }) end,     desc = "Run test suite" },
+  { "<leader>tl", function() require("neotest").run.run_last() end,                desc = "Run last test" },
+  { "<leader>ts", function() require("neotest").run.stop() end,                    desc = "Stop test" },
   { "<leader>to", function() require("neotest").output.open({ enter = true }) end, desc = "Show test output" },
-  { "<leader>tt", function() require("neotest").summary.toggle() end, desc = "Toggle test summary" },
+  { "<leader>tt", function() require("neotest").summary.toggle() end,              desc = "Toggle test summary" },
 }
 
 return M
