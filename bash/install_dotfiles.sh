@@ -2,13 +2,13 @@
 
 set -e
 source "$(dirname "$0")/utils.sh"
+DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 log "Copying Zsh dotfiles..."
-
-ZSHRC_SRC="$DIR/../bash/.zshrc"
-P10K_SRC="$DIR/../.p10k.zsh"
-PRIVATE_SRC="$DIR/../bash/.zsh_private_config"
-CORPORATE_SRC="$DIR/../bash/.zsh_corporate_config"
+ZSHRC_SRC="$DIR/.zshrc"
+P10K_SRC="$DIR/.p10k.zsh"
+PRIVATE_SRC="$DIR/.zsh_private_config"
+CORPORATE_SRC="$DIR/.zsh_corporate_config"
 
 cp "$ZSHRC_SRC" "$HOME/.zshrc"
 cp "$P10K_SRC" "$HOME/.p10k.zsh"

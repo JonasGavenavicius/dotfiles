@@ -3,42 +3,19 @@ source "$(dirname "$0")/utils.sh"
 
 log "Installing Hyprland and UI dependencies."
 
-sudo pacman -S ninja gcc wayland-protocols libjpeg-turbo libwebp libjxl pango cairo pkgconf cmake libglvnd wayland hyprutils hyprwayland-scanner hyprlang # Required libraries for Hyprland
+sudo pacman -S ninja gcc wayland-protocols libjpeg-turbo libwebp libjxl pango cairo pkgconf cmake libglvnd wayland hyprutils hyprwayland-scanner hyprlang libva libvdpau vdpauinfo
 
-sudo pacman -S --noconfirm \
-  hyprland \ # Main compositor
-  waybar \ # Status bar
-  wofi \ # Application launcher
-  grim \ # Screenshot tool
-  slurp \ # Screen selection tool
-  hyprpaper \ # Wallpaper manager
-  hyprlock \ # Screen locker
-  hyprcursor \ # Cursor theme support
-  swaync \ # Notification daemon
-  tlp \ # Power management tool
-  syspower \ # System power management
-  sysstat \ # System performance monitoring tools
-  dolphin \ # File manager
-  qt6-wayland \ # Qt6 Wayland support
-  qt5-wayland \ # Qt5 Wayland support
-  xdg-desktop-portal-hyprland \ # Hyprland desktop portal
-  gvfs \ # Virtual filesystem support
-  network-manager-applet \ # Network management applet
-  wlogout \ # Logout menu
-  playerctl # Player controller for media keys
+sudo pacman -S --noconfirm hyprland waybar wofi grim slurp hyprpaper  hyprlock  hyprcursor  swaync  tlp  sysstat  dolphin  qt6-wayland  qt5-wayland  xdg-desktop-portal-hyprland  gvfs  network-manager-applet  playerctl pipewire wireplumber pipewire-audio pipewire-alsa pipewire-pulse gst-libav gst-plugin-pipewire gst-plugins-good
 
-sudo yay -S --noconfirm \
-  swayosd-git \ # On-screen display for Hyprland
-  powerstat \ # Power consumption statistics tool
-  google-chrome \ # Web browser
-  1password # Power consumption statistics tool
+yay -S --noconfirm swayosd-git wlogout powerstat google-chrome 1password 
 
 # Enable bluetooth service
 sudo systemctl enable --now bluetooth
 sudo systemctl enable --now sysstat
 sudo systemctl enable --now tlp
+sudo systemctl enable --now pipewire pipewire-pulse wireplumber
 
 # Copy configuration files
-cp -r ../hyprland/hypr ~/.config/
-cp -r ../hyprland/wayland ~/.config/
+cp -r hyprland/hypr ~/.config/
+cp -r hyprland/wayland ~/.config/
 
