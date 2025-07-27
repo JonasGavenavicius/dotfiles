@@ -51,6 +51,7 @@ require("lazy").setup({
     { require "configs.diffview" },
     { require "configs.twilight" },
     { require "configs.render-markdown" },
+    { require "configs.todo" },
     -- { require 'configs.avante' },
 })
 vim.schedule(function()
