@@ -13,7 +13,8 @@
     "network",
     "pulseaudio",
     "tray",
-    "custom/power"
+    "custom/power",
+    "custom/powerstat"
   ],
 
   "clock": {
@@ -65,5 +66,11 @@
     "format": "",
     "tooltip": "Logout / Shutdown",
     "on-click": "wlogout"
+  },
+
+  "custom/powerstat": {
+    "format": "",
+    "tooltip": "Click to see power usage",
+    "on-click": "ghostty --hold powerstat"
   }
 }
